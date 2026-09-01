@@ -1,16 +1,11 @@
 const express = require('express');
 const compression = require('compression');
 const path = require('path');
+const fs = require('fs');
 const app = express();
 
 // Habilitar compresión Gzip para mejor rendimiento
 app.use(compression());
-
-// Servir archivos estáticos
-app.use(express.static(path.join(__dirname), {
-  maxAge: '1d',
-  etag: false
-}));
 
 // Headers para SEO y seguridad
 app.use((req, res, next) => {
@@ -27,34 +22,53 @@ app.use((req, res, next) => {
   next();
 });
 
+// Servir archivos estáticos (CSS, JS, imágenes, etc)
+app.use(express.static(path.join(__dirname), {
+  maxAge: '1d',
+  etag: false
+}));
+
 // Ruta principal - servir el HTML principal
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Sofia Cardozo.dc.html'));
+  const filePath = path.join(__dirname, 'Sofia Cardozo.dc.html');
+  if (fs.existsSync(filePath)) {
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.send(fs.readFileSync(filePath, 'utf-8'));
+  } else {
+    res.status(404).send('Not Found');
+  }
 });
 
 // Redirecciones de versiones alternativas
 app.get('/v2', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Sofia Cardozo v2.dc.html'));
+  const filePath = path.join(__dirname, 'Sofia Cardozo v2.dc.html');
+  if (fs.existsSync(filePath)) {
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.send(fs.readFileSync(filePath, 'utf-8'));
+  } else {
+    res.status(404).send('Not Found');
+  }
 });
 
 app.get('/v3', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Sofia Cardozo v3.dc.html'));
-});
-
-// Sitemap y robots.txt
-app.get('/sitemap.xml', (req, res) => {
-  res.type('application/xml');
-  res.sendFile(path.join(__dirname, 'sitemap.xml'));
-});
-
-app.get('/robots.txt', (req, res) => {
-  res.type('text/plain');
-  res.sendFile(path.join(__dirname, 'robots.txt'));
+  const filePath = path.join(__dirname, 'Sofia Cardozo v3.dc.html');
+  if (fs.existsSync(filePath)) {
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.send(fs.readFileSync(filePath, 'utf-8'));
+  } else {
+    res.status(404).send('Not Found');
+  }
 });
 
 // Manejo de rutas no encontradas - servir index
 app.use((req, res) => {
-  res.status(404).sendFile(path.join(__dirname, 'Sofia Cardozo.dc.html'));
+  const filePath = path.join(__dirname, 'Sofia Cardozo.dc.html');
+  if (fs.existsSync(filePath)) {
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.status(404).send(fs.readFileSync(filePath, 'utf-8'));
+  } else {
+    res.status(404).send('Not Found');
+  }
 });
 
 // Iniciar servidor
@@ -62,4 +76,5 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Servidor ejecutándose en puerto ${PORT}`);
   console.log(`📱 Visita: http://localhost:${PORT}`);
+  console.log(`📁 Directorio: ${__dirname}`);
 });
