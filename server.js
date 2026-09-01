@@ -22,6 +22,8 @@ app.use((req, res, next) => {
   res.setHeader('X-XSS-Protection', '1; mode=block');
   // Referrer policy para privacidad
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  // Permitir indexación por buscadores
+  res.setHeader('X-Robots-Tag', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
   next();
 });
 
@@ -37,6 +39,17 @@ app.get('/v2', (req, res) => {
 
 app.get('/v3', (req, res) => {
   res.sendFile(path.join(__dirname, 'Sofia Cardozo v3.dc.html'));
+});
+
+// Sitemap y robots.txt
+app.get('/sitemap.xml', (req, res) => {
+  res.type('application/xml');
+  res.sendFile(path.join(__dirname, 'sitemap.xml'));
+});
+
+app.get('/robots.txt', (req, res) => {
+  res.type('text/plain');
+  res.sendFile(path.join(__dirname, 'robots.txt'));
 });
 
 // Manejo de rutas no encontradas - servir index
