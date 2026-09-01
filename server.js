@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname), {
 
 // Ruta principal - servir el HTML principal
 app.get('/', (req, res) => {
-  const filePath = path.join(__dirname, 'Sofia Cardozo.dc.html');
+  const filePath = path.join(__dirname, 'Sofia Cardozo v3.dc.html');
   if (fs.existsSync(filePath)) {
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
     res.send(fs.readFileSync(filePath, 'utf-8'));
@@ -62,7 +62,7 @@ app.get('/v3', (req, res) => {
 
 // Manejo de rutas no encontradas - servir index
 app.use((req, res) => {
-  const filePath = path.join(__dirname, 'Sofia Cardozo.dc.html');
+  const filePath = path.join(__dirname, 'Sofia Cardozo v3.dc.html');
   if (fs.existsSync(filePath)) {
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
     res.status(404).send(fs.readFileSync(filePath, 'utf-8'));
