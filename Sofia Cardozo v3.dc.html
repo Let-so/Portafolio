@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="_ds/nocturne-32843ffa-57b5-4468-b741-c2ba4b8d6edf/styles.css">
+<script src="_ds/nocturne-32843ffa-57b5-4468-b741-c2ba4b8d6edf/_ds_bundle.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #ffffff; }
+  * { box-sizing: border-box; }
+  body { font-family: "Instrument Sans", "Helvetica Neue", system-ui, sans-serif; color: #0A0A0A; -webkit-font-smoothing: antialiased; }
+  a { color: #0A0A0A; text-decoration: none; }
+  a:hover { color: #3A50E0; }
+  :focus-visible { outline: 2px solid #3A50E0; outline-offset: 3px; }
+  ::selection { background: #3A50E0; color: #fff; }
+  @media (max-width: 900px) {
+    [data-pad] { padding-left: 20px !important; padding-right: 20px !important; }
+    [data-two] { grid-template-columns: 1fr !important; gap: 28px !important; }
+    #historia > div:first-child { position: static !important; }
+    [data-stickynav] div { display: none !important; }
+    [data-hero-grid] { grid-template-columns: 1fr !important; justify-items: center !important; gap: 20px !important; }
+    [data-hero-grid] > * { grid-column: 1 !important; justify-self: center !important; }
+    [data-hero-photo] { width: 54vw !important; }
+    [data-contact-row] { flex-direction: column !important; align-items: flex-start !important; gap: 24px !important; }
+  }
+</style>
+</helmet>
+
+<div style="position: absolute; background: #fff; overflow-x: clip; left: 24px; top: 2px">
+
+  <section id="inicio" data-screen-label="Hero" style="position:relative;height:100vh;min-height:560px;overflow:hidden;background:#E0DFDB">
+    <div data-hex="true" style="position:absolute;inset:0;z-index:0;will-change:transform">
+      <x-import component-from-global-scope="plush-bg" from="./plush-bg.js" hint-size="100%,100%"></x-import>
+    </div>
+    <div style="position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(58% 62% at 50% 46%, rgba(255,255,255,.34) 0%, rgba(255,255,255,0) 72%)"></div>
+
+    <div data-hero-grid="true" style="position: absolute; inset: 0; z-index: 2; display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); grid-template-rows: 1fr auto 1fr; align-content: center; justify-items: stretch; column-gap: 2.5vw; padding: 0 3vw; left: -3px; top: 0px">
+      <span data-line="left" style="grid-column: 1; grid-row: 1; align-self: end; justify-self: end; padding-bottom: 14px; font-size: 15px; font-weight: 500; color: var(--color-accent-2-900); white-space: nowrap">Founder &amp; CEO</span>
+      <span data-name="left" data-line="left" style="grid-column:1;grid-row:2;justify-self:end;font-size:clamp(22px,3.1vw,60px);font-weight:700;line-height:1;letter-spacing:-.03em;color:#2B2B2B;white-space:nowrap">SOFÍA SOLEDAD</span>
+
+      <div data-hero-photo="true" style="grid-column:2;grid-row:1 / span 3;align-self:center;position:relative;width:min(20vw,300px);aspect-ratio:3/4;border-radius:26px;overflow:hidden;background:#DADADA;box-shadow:0 26px 60px rgba(0,0,0,.22);will-change:opacity">
+        <img src="assets/sofia-cutout.png" alt="Sofía Soledad Cardozo" style="width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block">
+      </div>
+
+      <span data-line="right" style="grid-column: 3; grid-row: 1; align-self: end; justify-self: start; padding-bottom: 14px; font-size: 15px; font-weight: 500; color: var(--color-accent-2-900); white-space: nowrap">AlDía</span>
+      <span data-name="right" data-line="right" style="grid-column:3;grid-row:2;justify-self:start;font-size:clamp(22px,3.1vw,60px);font-weight:700;line-height:1;letter-spacing:-.03em;color:#2B2B2B;white-space:nowrap">CARDOZO</span>
+      <span data-line="right" style="grid-column: 3; grid-row: 3; align-self: start; justify-self: start; padding-top: 16px; font-size: 15px; font-weight: 500; color: var(--color-accent-2-900); white-space: nowrap">Córdoba, Argentina</span>
+    </div>
+
+  </section>
+
+  <nav data-stickynav="true" style="position:sticky;top:0;z-index:80;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 34px;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(10,10,10,.08)">
+    <span style="display:flex;align-items:center;gap:7px;font-size:12px;font-weight:600"><span style="font-size:13px">◎</span>Sofía Cardozo · AlDía</span>
+    <div style="display:flex;flex-wrap:wrap;gap:18px">
+      <a href="#aldia" style="font-size:11.5px;font-weight:500;letter-spacing:.04em">ALDÍA</a>
+      <a href="#historia" style="font-size:11.5px;font-weight:500;letter-spacing:.04em">MI HISTORIA</a>
+      <a href="#tecnologia" style="font-size:11.5px;font-weight:500;letter-spacing:.04em">TECNOLOGÍA</a>
+      <a href="#hoy" style="font-size:11.5px;font-weight:500;letter-spacing:.04em">HOY</a>
+      <a href="#hitos" style="font-size:11.5px;font-weight:500;letter-spacing:.04em">HITOS</a>
+      <a href="#contacto" style="font-size:11.5px;font-weight:500;letter-spacing:.04em">CONTACTO</a>
+    </div>
+  </nav>
+
+  <section data-pad="true" data-two="true" style="display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:56px;padding:52px 34px 24px;align-items:start">
+    <p style="margin:0;font-size:clamp(19px,2.1vw,27px);line-height:1.35;letter-spacing:-.02em;text-wrap:pretty">AlDía es una startup tecnológica de salud. Estoy construyendo una compañía que busca mejorar la continuidad del sistema de salud conectando lo que ocurre entre consultas, internaciones y otros episodios.</p>
+    <p style="margin:0;font-size:14.5px;line-height:1.6;color:#5C5C5C">La primera versión del producto fue construida desde cero y hoy lidero el desarrollo de la compañía.</p>
+  </section>
+
+  <section id="aldia" data-screen-label="AlDía" data-pad="true" style="padding:70px 34px 20px">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#8A8A8A">LA COMPAÑÍA</span>
+    <h2 style="margin:16px 0 0;font-size:clamp(40px,6.4vw,86px);line-height:1;font-weight:400;letter-spacing:-.045em">AlDía</h2>
+
+    <div style="margin-top:44px;padding-top:26px;border-top:1px solid rgba(10,10,10,.12)">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8A8A8A">Descripción</span>
+      <h3 style="margin:16px 0 0;max-width:1000px;font-size:clamp(24px,3.2vw,42px);line-height:1.14;font-weight:400;letter-spacing:-.03em;text-wrap:pretty">Una enfermedad ocurre todos los días. El sistema de salud solo registra una parte.</h3>
+      <p style="margin:20px 0 0;max-width:780px;font-size:15.5px;line-height:1.65;color:#5C5C5C;text-wrap:pretty">AlDía hace visible todo lo que pasa cuando nadie está mirando: convierte la experiencia de una persona en una trayectoria continua que conecta a quien se enferma, a quien lo trata y a quien lo cubre.</p>
+    </div>
+
+    <div style="margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;align-items:start">
+      <article style="background:#0A0A0A;color:#fff;border-radius:18px;padding:30px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.04em;color:#9A9A9A">Problema que resuelve</span>
+        <h4 style="margin:20px 0 0;font-size:21px;line-height:1.24;font-weight:500;letter-spacing:-.02em;text-wrap:pretty">El sistema de salud toma decisiones sobre una vida que no puede ver.</h4>
+        <p style="margin:14px 0 0;font-size:14px;line-height:1.65;color:#9A9A9A;text-wrap:pretty">Ve consultas, internaciones y facturas, pero no lo que ocurre entre ellas. El problema no es la falta de datos: es la falta de continuidad. AlDía convierte episodios aislados en una historia que permite dejar de decidir a ciegas.</p>
+      </article>
+      <article style="background:#0A0A0A;color:#fff;border-radius:18px;padding:30px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.04em;color:#9A9A9A">Solución propuesta</span>
+        <h4 style="margin:20px 0 0;font-size:21px;line-height:1.24;font-weight:500;letter-spacing:-.02em;text-wrap:pretty">La persona habla.</h4>
+        <p style="margin:14px 0 0;font-size:14px;line-height:1.65;color:#9A9A9A;text-wrap:pretty">Andy, la inteligencia de AlDía, convierte lo que cuenta en una trayectoria continua. Así, el médico llega sabiendo, quien financia puede ver cómo está su población y, cuando aparece una necesidad, el sistema conecta a la persona con lo que necesita.</p>
+      </article>
+      <article style="background:#0A0A0A;color:#fff;border-radius:18px;padding:30px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.04em;color:#9A9A9A">Mercado objetivo</span>
+        <h4 style="margin:20px 0 0;font-size:21px;line-height:1.24;font-weight:500;letter-spacing:-.02em;text-wrap:pretty">Una red alrededor de la persona.</h4>
+        <p style="margin:14px 0 0;font-size:14px;line-height:1.65;color:#9A9A9A;text-wrap:pretty">Obras sociales, prepagas, clínicas y hospitales. Personas con enfermedades crónicas y sus equipos médicos. Y una red abierta de servicios y comercios que forman parte de la vida cotidiana de esa persona, desde una farmacia hasta cualquier necesidad que aparezca durante su tratamiento.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="historia" data-screen-label="Mi historia" data-pad="true" data-two="true" style="display:grid;grid-template-columns:minmax(0,.35fr) minmax(0,.65fr);gap:72px;align-items:start;padding:70px 34px 40px">
+    <div style="position:sticky;top:34px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#8A8A8A">MI HISTORIA</span>
+      <h2 style="margin:16px 0 0;font-size:clamp(28px,3.4vw,44px);line-height:1.08;font-weight:400;letter-spacing:-.035em;text-wrap:pretty">Una parte de cómo llegué hasta acá.</h2>
+    </div>
+
+    <div style="max-width:780px;display:flex;flex-direction:column;gap:26px;text-align:left">
+      <p style="margin:0;font-size:23px;line-height:1.6;color:#0A0A0A;text-wrap:pretty">A los 14 años empecé a aprender a programar de manera autodidacta, principalmente con videos de YouTube.</p>
+      <p style="margin:0;font-size:19.5px;line-height:1.72;color:#2A2A2A;text-wrap:pretty">Con mi computadora hay una anécdota bastante curiosa de esa época.</p>
+      <p style="margin:0;font-size:19.5px;line-height:1.72;color:#2A2A2A;text-wrap:pretty">La computadora que usaba para programar ya no me permitía avanzar demasiado. Se acercaban mis 15 y mi papá me había dado $20.000 para mi cumpleaños, pero no alcanzaba para comprar una computadora nueva.</p>
+      <p style="margin:0;font-size:19.5px;line-height:1.72;color:#2A2A2A;text-wrap:pretty">Así que decidí usar ese dinero para comprar ropa y poner un pequeño showroom en casa. Durante un año fui guardando lo que ganaba porque quería llegar a $100.000 y comprarme la computadora que necesitaba.</p>
+      <p style="margin:0;font-size:19.5px;line-height:1.72;color:#2A2A2A;text-wrap:pretty">Cuando finalmente llegué a esa cifra, el precio de la computadora ya había subido muchísimo y ese dinero dejó de alcanzar.</p>
+      <p style="margin:0;font-size:21.5px;line-height:1.6;font-weight:500;letter-spacing:-.01em;color:#0A0A0A;text-wrap:pretty">Así que terminé comprando los componentes por separado y armándola yo misma.</p>
+      <p style="margin:0;font-size:19.5px;line-height:1.72;color:#2A2A2A;text-wrap:pretty">Esa es la misma computadora con la que años después empecé a construir AlDía.</p>
+      <p style="margin:0;font-size:19.5px;line-height:1.72;color:#2A2A2A;text-wrap:pretty">A los 16 años desarrollé mi primer software, Saveer, una plataforma donde los comercios podían cargar sus productos y precios y la aplicación los comparaba para mostrar dónde se encontraba cada producto más barato.</p>
+      <p style="margin:0;font-size:19.5px;line-height:1.72;color:#2A2A2A;text-wrap:pretty">Después estudié Ingeniería en Sistemas de Información en la UTN y seguí desarrollando proyectos de software, hasta llegar a AlDía.</p>
+      <p style="margin:0;font-size:21.5px;line-height:1.6;font-weight:500;letter-spacing:-.01em;color:#0A0A0A;text-wrap:pretty">Hoy soy quien lidera el proyecto, y todo lo que están viendo fue construido desde cero.</p>
+    </div>
+  </section>
+
+  <section id="tecnologia" data-screen-label="Tecnología" style="margin-top:64px;background:#0A0A0A;color:#fff;padding:88px 34px 96px">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#8A8A8A">TECNOLOGÍA</span>
+    <h2 style="margin:16px 0 0;max-width:1000px;font-size:clamp(30px,4.4vw,54px);line-height:1.1;font-weight:400;letter-spacing:-.035em;text-wrap:pretty">La parte de AlDía que construí directamente.</h2>
+
+    <div style="margin-top:46px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;align-items:start">
+      <article style="background:#121212;border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:28px">
+        <div style="display:flex;align-items:baseline;gap:12px"><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#6F6F6F">01</span><h3 style="margin:0;font-size:19px;font-weight:500;letter-spacing:-.015em">Backend y producto</h3></div>
+        <p style="margin:14px 0 20px;font-size:14px;line-height:1.65;color:#8F8F8F;text-wrap:pretty">Desarrollo de la arquitectura backend, APIs REST, lógica de negocio y diferentes componentes del producto.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:7px">
+          <span style="font-size:11px;color:#DADADA;background:#1E1E1E;border-radius:8px;padding:6px 11px">Node.js</span>
+          <span style="font-size:11px;color:#DADADA;background:#1E1E1E;border-radius:8px;padding:6px 11px">Express</span>
+          <span style="font-size:11px;color:#DADADA;background:#1E1E1E;border-radius:8px;padding:6px 11px">TypeScript</span>
+          <span style="font-size:11px;color:#DADADA;background:#1E1E1E;border-radius:8px;padding:6px 11px">React</span>
+          <span style="font-size:11px;color:#DADADA;background:#1E1E1E;border-radius:8px;padding:6px 11px">REST APIs</span>
+        </div>
+      </article>
+      <article style="background:#121212;border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:28px">
+        <div style="display:flex;align-items:baseline;gap:12px"><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#6F6F6F">02</span><h3 style="margin:0;font-size:19px;font-weight:500;letter-spacing:-.015em">Datos</h3></div>
+        <p style="margin:14px 0 20px;font-size:14px;line-height:1.65;color:#8F8F8F;text-wrap:pretty">Diseño y trabajo con diferentes estructuras de almacenamiento según las necesidades de los datos y del producto.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:7px">
+          <span style="font-size:11px;color:#DADADA;background:#1E1E1E;border-radius:8px;padding:6px 11px">MongoDB</span>
+          <span style="font-size:11px;color:#DADADA;background:#1E1E1E;border-radius:8px;padding:6px 11px">PostgreSQL</span>
+          <span style="font-size:11px;color:#DADADA;background:#1E1E1E;border-radius:8px;padding:6px 11px">Prisma</span>
+          <span style="font-size:11px;color:#DADADA;background:#1E1E1E;border-radius:8px;padding:6px 11px">Redis</span>
+          <span style="font-size:11px;color:#DADADA;background:#1E1E1E;border-radius:8px;padding:6px 11px">TimescaleDB</span>
+        </div>
+      </article>
+      <article style="background:#121212;border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:28px">
+        <div style="display:flex;align-items:baseline;gap:12px"><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#6F6F6F">03</span><h3 style="margin:0;font-size:19px;font-weight:500;letter-spacing:-.015em">IA y voz</h3></div>
+        <p style="margin:14px 0 20px;font-size:14px;line-height:1.65;color:#8F8F8F;text-wrap:pretty">Desarrollo de componentes de inteligencia artificial y procesamiento de audio, incluyendo extracción de características acústicas y comparación con líneas de base individuales.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:7px">
+          <span style="font-size:11px;color:#DADADA;background:#1E1E1E;border-radius:8px;padding:6px 11px">Python</span>
+          <span style="font-size:11px;color:#DADADA;background:#1E1E1E;border-radius:8px;padding:6px 11px">FastAPI</span>
+          <span style="font-size:11px;color:#DADADA;background:#1E1E1E;border-radius:8px;padding:6px 11px">Whisper</span>
+          <span style="font-size:11px;color:#DADADA;background:#1E1E1E;border-radius:8px;padding:6px 11px">NLP</span>
+          <span style="font-size:11px;color:#DADADA;background:#1E1E1E;border-radius:8px;padding:6px 11px">LLMs</span>
+          <span style="font-size:11px;color:#DADADA;background:#1E1E1E;border-radius:8px;padding:6px 11px">MFCC</span>
+        </div>
+      </article>
+      <article style="background:#121212;border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:28px">
+        <div style="display:flex;align-items:baseline;gap:12px"><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#6F6F6F">04</span><h3 style="margin:0;font-size:19px;font-weight:500;letter-spacing:-.015em">Integraciones y seguridad</h3></div>
+        <p style="margin:14px 0 20px;font-size:14px;line-height:1.65;color:#8F8F8F;text-wrap:pretty">Integración con dispositivos y aplicaciones, autenticación, seguridad, infraestructura y despliegue de los diferentes componentes del sistema.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:7px">
+          <span style="font-size:11px;color:#DADADA;background:#1E1E1E;border-radius:8px;padding:6px 11px">Android</span>
+          <span style="font-size:11px;color:#DADADA;background:#1E1E1E;border-radius:8px;padding:6px 11px">BLE</span>
+          <span style="font-size:11px;color:#DADADA;background:#1E1E1E;border-radius:8px;padding:6px 11px">JWT</span>
+          <span style="font-size:11px;color:#DADADA;background:#1E1E1E;border-radius:8px;padding:6px 11px">2FA</span>
+          <span style="font-size:11px;color:#DADADA;background:#1E1E1E;border-radius:8px;padding:6px 11px">Cifrado</span>
+          <span style="font-size:11px;color:#DADADA;background:#1E1E1E;border-radius:8px;padding:6px 11px">Docker</span>
+          <span style="font-size:11px;color:#DADADA;background:#1E1E1E;border-radius:8px;padding:6px 11px">AWS</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="hoy" data-screen-label="Hoy" data-pad="true" style="padding:80px 34px 20px">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#8A8A8A">HOY</span>
+    <h2 style="margin:16px 0 0;max-width:1000px;font-size:clamp(30px,4.4vw,54px);line-height:1.1;font-weight:400;letter-spacing:-.035em;text-wrap:pretty">Mi trabajo cambió a medida que creció AlDía.</h2>
+
+    <div data-two="true" style="margin-top:44px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:44px;align-items:start">
+      <p style="margin:0;font-size:clamp(20px,2.3vw,30px);line-height:1.25;font-weight:400;letter-spacing:-.025em;text-wrap:pretty">Actualmente mi principal responsabilidad es dirigir la compañía.</p>
+      <div style="display:flex;flex-direction:column">
+        <p style="margin:0;padding:0 0 22px;font-size:14.5px;line-height:1.7;color:#5C5C5C;text-wrap:pretty">Durante las primeras etapas de AlDía estuve directamente involucrada en prácticamente todas las partes del producto. Diseñé la arquitectura y desarrollé personalmente gran parte de la primera versión.</p>
+        <p style="margin:0;padding:22px 0;border-top:1px solid rgba(10,10,10,.12);font-size:14.5px;line-height:1.7;color:#5C5C5C;text-wrap:pretty">Hoy sigo involucrada en las decisiones tecnológicas, pero mi trabajo como Founder &amp; CEO también incluye producto, estrategia, negocio, propiedad intelectual, equipo y dirección general de la compañía.</p>
+        <p style="margin:0;padding:22px 0 0;border-top:1px solid rgba(10,10,10,.12);font-size:14.5px;line-height:1.7;color:#5C5C5C;text-wrap:pretty">Una parte importante de mi trabajo actual consiste en construir un equipo y una organización capaces de seguir desarrollando AlDía más allá de lo que puedo hacer personalmente.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="hitos" data-screen-label="Hitos" data-pad="true" style="padding:80px 34px 20px">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#8A8A8A">ALDÍA HASTA AHORA</span>
+    <h2 style="margin:16px 0 0;font-size:clamp(30px,4.4vw,54px);line-height:1.1;font-weight:400;letter-spacing:-.035em">Algunos hitos del proyecto.</h2>
+
+    <div style="margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;align-items:start">
+      <article style="border:1px solid rgba(10,10,10,.14);border-radius:18px;padding:28px">
+        <div style="font-size:34px;line-height:1.05;font-weight:400;letter-spacing:-.03em;color:#3A50E0">Top 10</div>
+        <h3 style="margin:18px 0 0;font-size:17px;font-weight:500;letter-spacing:-.01em">Premios ILAN UTN 2026</h3>
+        <p style="margin:9px 0 0;font-size:14px;line-height:1.65;color:#5C5C5C;text-wrap:pretty">AlDía fue seleccionado entre los 10 mejores proyectos de ingeniería del país.</p>
+      </article>
+      <article style="border:1px solid rgba(10,10,10,.14);border-radius:18px;padding:28px">
+        <div style="font-size:34px;line-height:1.05;font-weight:400;letter-spacing:-.03em;color:#3A50E0">INPI</div>
+        <h3 style="margin:18px 0 0;font-size:17px;font-weight:500;letter-spacing:-.01em">Patente en trámite</h3>
+        <p style="margin:9px 0 0;font-size:14px;line-height:1.65;color:#5C5C5C;text-wrap:pretty">Solicitud de patente de invención relacionada con un sistema de apoyo clínico con análisis asistido por inteligencia artificial.</p>
+      </article>
+      <article style="border:1px solid rgba(10,10,10,.14);border-radius:18px;padding:28px">
+        <div style="font-size:34px;line-height:1.05;font-weight:400;letter-spacing:-.03em;color:#3A50E0">Naves</div>
+        <h3 style="margin:18px 0 0;font-size:17px;font-weight:500;letter-spacing:-.01em">Naves 2026</h3>
+        <p style="margin:9px 0 0;font-size:14px;line-height:1.65;color:#5C5C5C;text-wrap:pretty">Participación en Naves 2026, vinculado con IAE Business School y Banco Macro.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="contacto" data-screen-label="Contacto" data-pad="true" style="padding:80px 34px 40px">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#8A8A8A">CONTACTO</span>
+    <h2 style="margin:16px 0 0;max-width:900px;font-size:clamp(30px,4.2vw,50px);line-height:1.12;font-weight:400;letter-spacing:-.035em;text-wrap:pretty">Si querés hablar sobre AlDía o tecnología.</h2>
+
+    <div data-contact-row="true" style="margin-top:40px;display:flex;align-items:center;gap:32px">
+      <div style="flex:1;height:1px;background:rgba(10,10,10,.18)"></div>
+      <a href="mailto:sofia@aldia.health" style="flex:0 0 auto;width:130px;height:130px;border-radius:999px;background:#3A50E0;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500" style-hover="background:#2c3fc0;color:#fff">Hablemos</a>
+    </div>
+
+    <div style="margin-top:34px;display:flex;flex-wrap:wrap;gap:52px">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#8A8A8A">Email</div>
+        <a href="mailto:sofia@aldia.health" style="font-size:13.5px">sofia@aldia.health</a>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#8A8A8A">LinkedIn</div>
+        <a href="https://www.linkedin.com/in/sof%C3%ADa-soledad-cardozo-716789224" target="_blank" rel="noopener" style="font-size:13.5px">Sofía Soledad Cardozo</a>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#8A8A8A">GitHub</div>
+        <a href="https://github.com/Let-so" target="_blank" rel="noopener" style="font-size:13.5px">github.com/Let-so</a>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#8A8A8A">Ubicación</div>
+        <span style="font-size:13.5px">Córdoba, Argentina</span>
+      </div>
+    </div>
+  </section>
+
+  <footer style="margin-top:60px;background:#0A0A0A;color:#fff;padding:30px 34px 14px;overflow:hidden">
+    <div style="font-size:15.5vw;line-height:.94;font-weight:400;letter-spacing:-.05em;white-space:nowrap;color:#fff">Sofía Cardozo</div>
+    <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:14px;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#7A7A7A">
+      <span>Founder &amp; CEO — AlDía</span>
+      <span>·</span>
+      <span>Ingeniería en Sistemas de Información — UTN</span>
+      <span>·</span>
+      <span>Córdoba, Argentina</span>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    this._driveScroll();
+  }
+
+  componentWillUnmount() { this._stop = true; }
+
+  // rAF loop: this host doesn't reliably fire scroll events, so read scrollTop.
+  _driveScroll() {
+    const hero = document.getElementById('inicio');
+    const hex = document.querySelector('[data-hex]');
+    const left = Array.from(document.querySelectorAll('[data-line="left"]'));
+    const right = Array.from(document.querySelectorAll('[data-line="right"]'));
+    const photo = document.querySelector('[data-hero-photo]');
+    if (!hero) return;
+    let last = -1;
+    const tick = () => {
+      if (this._stop) return;
+      const st = (document.scrollingElement || document.documentElement).scrollTop;
+      const p = Math.max(0, Math.min(1, st / Math.max(1, hero.clientHeight)));
+      if (Math.abs(p - last) > 0.002) {
+        last = p;
+        if (hex) hex.style.transform = 'scale(' + (1 + 0.4 * p) + ')';
+        left.forEach(el => { el.style.transform = 'translateX(' + (-14 * p) + 'vw)'; });
+        right.forEach(el => { el.style.transform = 'translateX(' + (14 * p) + 'vw)'; });
+        if (photo) photo.style.opacity = p < 0.7 ? 1 : Math.max(0, 1 - (p - 0.7) / 0.3);
+      }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  // Each line is sized from its measured glyph width so the stack spans the
+  // hero's content box; the height budget is met by CAPPING the per-line size
+  // (leading stays readable at .84), so at most the widest line underfills.
+  _fitType() {
+    const hero = document.getElementById('inicio');
+    const back = document.querySelector('[data-hero-type]');
+    const front = document.querySelector('[data-hero-type-front]');
+    if (!hero || !back) return;
+    const cs = getComputedStyle(back);
+    const target = back.getBoundingClientRect().width - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    if (!target || target < 60) return;
+    const spans = Array.from(back.children);
+    const sizes = spans.map(sp => {
+      sp.style.fontSize = '200px';
+      const r = document.createRange();
+      r.selectNodeContents(sp);
+      const w = r.getBoundingClientRect().width || 1;
+      return 200 * (target / w);
+    });
+    const lh = 0.86;
+    // leave room for the figure: the type block may use ~62% of the hero height
+    const cap = (hero.clientHeight * 0.62) / (sizes.length * lh);
+    [back, front].forEach(layer => {
+      if (!layer) return;
+      Array.from(layer.children).forEach((sp, i) => {
+        sp.style.fontSize = Math.min(sizes[i], cap) + 'px';
+        sp.style.lineHeight = lh;
+      });
+    });
+  }
+}
+</script>
+</body>
+</html>

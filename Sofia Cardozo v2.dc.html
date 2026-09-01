@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: #D6D2C6; }
+  * { box-sizing: border-box; }
+  body { font-family: Archivo, system-ui, sans-serif; color: #111111; -webkit-font-smoothing: antialiased; }
+  a { color: #111111; text-decoration: none; }
+  a:hover { color: #2340FF; }
+  :focus-visible { outline: 2px solid #2340FF; outline-offset: 3px; }
+  ::selection { background: #2340FF; color: #fff; }
+  @keyframes marq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  [data-mobilebar] { display: none; }
+  @media (max-width: 1023px) {
+    [data-panel] { display: none !important; }
+    [data-mobilebar] { display: flex !important; }
+    [data-content] { margin-left: 0 !important; padding: 0 18px 90px !important; }
+    [data-hero-nav-wrap] { display: none !important; }
+    [data-hero-card] { position: static !important; transform: none !important; }
+    [data-hero-side] { position: static !important; transform: none !important; width: 100% !important; align-items: flex-start !important; text-align: left !important; }
+    [data-hero-stack] { position: static !important; display: flex !important; flex-direction: row !important; flex-wrap: wrap !important; gap: 10px !important; padding: 0 18px 24px !important; }
+    [data-hero-headline] { position: static !important; transform: none !important; padding: 0 18px !important; color: #111 !important; text-shadow: none !important; }
+    [data-hero-actions] { position: static !important; transform: none !important; justify-content: flex-start !important; padding: 0 18px 28px !important; }
+    [data-hero] { height: auto !important; min-height: 0 !important; padding-bottom: 24px !important; }
+    [data-hero-photo] { position: static !important; transform: none !important; height: 52vh !important; margin: 8px auto 0 !important; display: block !important; }
+    [data-hero-wordmark], [data-hero-wordmark-front] { position: static !important; padding: 26px 18px 0 !important; }
+    [data-hero-wordmark] span { line-height: 1 !important; }
+    [data-hero-wordmark-front] { display: none !important; }
+    [data-hero-stage] { height: auto !important; }
+    [data-hero-fine] { position: static !important; padding: 0 18px 20px !important; text-align: left !important; max-width: none !important; }
+  }
+</style>
+</helmet>
+
+<div style="position:relative;background:#D6D2C6;overflow-x:hidden">
+
+  <section id="inicio" data-hero="true" data-screen-label="Hero" style="position:relative;height:100vh;min-height:700px;overflow:hidden">
+    <div data-hero-stage="true" style="position:relative;height:100%">
+
+      <div data-hero-wordmark="true" style="position:absolute;top:5%;left:0;right:0;text-align:center;z-index:1">
+        <div style="position:relative;display:block">
+          <span style="display:block;font-size:23vw;line-height:.8;font-weight:900;font-stretch:88%;letter-spacing:-.055em;color:#2340FF">SOFÍA<sup style="font-size:.16em;font-weight:800;vertical-align:super">®</sup></span>
+        </div>
+      </div>
+
+      <img data-hero-photo="true" src="assets/sofia-cutout.png" alt="Sofía Cardozo" style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:82%;width:auto;z-index:2;pointer-events:none">
+
+      <div data-hero-wordmark-front="true" style="position:absolute;top:5%;left:0;right:0;text-align:center;z-index:3;pointer-events:none;clip-path:inset(0 0 0 66%)">
+        <span style="display:block;font-size:23vw;line-height:.8;font-weight:900;font-stretch:88%;letter-spacing:-.055em;color:#2340FF">SOFÍA<sup style="font-size:.16em;font-weight:800;vertical-align:super">®</sup></span>
+      </div>
+
+      <h1 data-hero-headline="true" style="position:absolute;left:50%;bottom:27%;transform:translateX(-52%);margin:0;z-index:4;text-align:left;font-size:clamp(34px,5vw,74px);line-height:.98;font-weight:900;font-stretch:88%;letter-spacing:-.035em;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.35)">Salud,<br>Conectada<br>de Verdad.</h1>
+
+      <div data-hero-stack="true" style="position:absolute;left:3%;top:40%;z-index:4;display:flex;flex-direction:column;gap:10px">
+        <div data-hero-card="true" style="background:rgba(255,255,255,.4);backdrop-filter:blur(6px);border:1px solid rgba(0,0,0,.05);border-radius:20px;padding:16px 20px;display:flex;align-items:center;gap:14px">
+          <span style="font-size:34px;font-weight:900;font-stretch:88%;letter-spacing:-.04em;color:#2340FF;line-height:1">2026</span>
+          <span style="font-size:12px;font-weight:700;line-height:1.25">Fundación<br>de AlDía</span>
+        </div>
+        <div data-hero-card="true" style="background:rgba(255,255,255,.4);backdrop-filter:blur(6px);border:1px solid rgba(0,0,0,.05);border-radius:20px;padding:16px 20px;display:flex;align-items:center;gap:14px">
+          <span style="font-size:34px;font-weight:900;font-stretch:88%;letter-spacing:-.04em;color:#2340FF;line-height:1">Top 10</span>
+          <span style="font-size:12px;font-weight:700;line-height:1.25">Premios<br>ILAN UTN</span>
+        </div>
+      </div>
+
+      <div data-hero-side="true" data-hero-card="true" style="position:absolute;right:3%;top:40%;z-index:4;background:rgba(255,255,255,.4);backdrop-filter:blur(6px);border:1px solid rgba(0,0,0,.05);border-radius:20px;padding:18px 22px;display:flex;flex-direction:column;gap:9px">
+        <span style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700"><span style="color:#2340FF;font-size:15px">◆</span>Fundadora</span>
+        <span style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700"><span style="color:#2340FF;font-size:15px">✦</span>Ingeniera</span>
+        <span style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700"><span style="color:#2340FF;font-size:15px">▲</span>Constructora</span>
+        <span style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700"><span style="color:#2340FF;font-size:15px">◈</span>Estratega</span>
+        <span style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700"><span style="color:#2340FF;font-size:15px">●</span>Obsesiva</span>
+      </div>
+
+      <div data-hero-nav-wrap="true" style="position:absolute;left:0;right:0;bottom:15%;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:0 3%;pointer-events:none">
+        <div style="display:flex;align-items:center;gap:16px;pointer-events:auto">
+          <a data-hero-nav="true" href="#inicio" style="font-size:14px;font-weight:800;letter-spacing:.02em">INICIO</a>
+          <span style="width:1px;height:14px;background:rgba(17,17,17,.3)"></span>
+          <a data-hero-nav="true" href="#aldia" style="font-size:14px;font-weight:800;letter-spacing:.02em">ALDÍA</a>
+          <span style="width:1px;height:14px;background:rgba(17,17,17,.3)"></span>
+          <a data-hero-nav="true" href="#historia" style="font-size:14px;font-weight:800;letter-spacing:.02em">MI HISTORIA</a>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;pointer-events:auto">
+          <a data-hero-nav="true" href="#tecnologia" style="font-size:14px;font-weight:800;letter-spacing:.02em">TECNOLOGÍA</a>
+          <span style="width:1px;height:14px;background:rgba(17,17,17,.3)"></span>
+          <a data-hero-nav="true" href="#hoy" style="font-size:14px;font-weight:800;letter-spacing:.02em">HOY</a>
+          <span style="width:1px;height:14px;background:rgba(17,17,17,.3)"></span>
+          <a data-hero-nav="true" href="#hitos" style="font-size:14px;font-weight:800;letter-spacing:.02em">HITOS</a>
+          <span style="width:1px;height:14px;background:rgba(17,17,17,.3)"></span>
+          <a data-hero-nav="true" href="#contacto" style="font-size:14px;font-weight:800;letter-spacing:.02em">CONTACTO</a>
+        </div>
+      </div>
+
+      <p data-hero-fine="true" style="position:absolute;left:3%;bottom:6%;z-index:4;margin:0;max-width:230px;font-size:12.5px;line-height:1.5;color:#3b3a33">La founder que escribió el código.<br>Esa soy yo.</p>
+      <p data-hero-fine="true" style="position:absolute;right:3%;bottom:6%;z-index:4;margin:0;max-width:270px;text-align:right;font-size:12.5px;line-height:1.5;color:#3b3a33">Construyo tecnología de salud que conecta lo que pasa entre consultas, internaciones y episodios.</p>
+
+      <div data-hero-actions="true" style="position:absolute;left:50%;bottom:5%;transform:translateX(-50%);z-index:6;display:flex;gap:12px">
+        <a href="#contacto" style="background:#2340FF;color:#fff;border-radius:999px;padding:14px 30px;font-size:15px;font-weight:800" style-hover="background:#1a33cc;color:#fff">Hablemos</a>
+        <a href="#historia" style="background:rgba(255,255,255,.75);border:1px solid rgba(17,17,17,.12);border-radius:999px;padding:14px 30px;font-size:15px;font-weight:800" style-hover="background:#fff">Sobre mí</a>
+      </div>
+    </div>
+  </section>
+
+  <aside data-panel="true" style="position:fixed;top:16px;left:16px;width:244px;display:flex;flex-direction:column;gap:10px;z-index:60">
+    <div style="background:rgba(255,255,255,.45);border:1px solid rgba(0,0,0,.05);border-radius:22px;padding:15px">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+        <span style="background:#2340FF;color:#fff;font-weight:900;font-stretch:88%;font-size:15px;letter-spacing:-.02em;padding:6px 10px;border-radius:8px">SOFÍA<sup style="font-size:8px">®</sup></span>
+        <div style="display:flex;gap:6px">
+          <a href="https://www.linkedin.com/in/sof%C3%ADa-soledad-cardozo-716789224" target="_blank" rel="noopener" style="width:28px;height:28px;border-radius:9px;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800" style-hover="background:#2340FF;color:#fff">in</a>
+          <a href="https://github.com/Let-so" target="_blank" rel="noopener" style="width:28px;height:28px;border-radius:9px;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800" style-hover="background:#2340FF;color:#fff">gh</a>
+        </div>
+      </div>
+      <p style="margin:12px 0 0;font-size:11px;line-height:1.5;color:#4a4941">Founder &amp; CEO de AlDía. Construyo tecnología de salud con IA, datos fisiológicos y análisis de voz.</p>
+    </div>
+
+    <div style="background:rgba(255,255,255,.45);border:1px solid rgba(0,0,0,.05);border-radius:22px;padding:16px 8px;display:grid;grid-template-columns:1fr 1px 1fr;align-items:center">
+      <div style="text-align:center">
+        <div style="font-size:21px;font-weight:900;font-stretch:88%;color:#2340FF;line-height:1">2026</div>
+        <div style="font-size:10px;font-weight:700;margin-top:5px">Fundación</div>
+      </div>
+      <div style="background:rgba(0,0,0,.12);height:34px"></div>
+      <div style="text-align:center">
+        <div style="font-size:21px;font-weight:900;font-stretch:88%;color:#2340FF;line-height:1">Top 10</div>
+        <div style="font-size:10px;font-weight:700;margin-top:5px">Premios ILAN</div>
+      </div>
+    </div>
+
+    <nav style="background:rgba(255,255,255,.45);border:1px solid rgba(0,0,0,.05);border-radius:22px;padding:12px;display:flex;flex-direction:column;gap:6px;align-items:flex-start">
+      <a href="#inicio" data-nav="inicio" style="display:flex;align-items:center;gap:8px;background:#111;color:#fff;font-size:11px;font-weight:800;letter-spacing:.04em;padding:7px 11px;border-radius:9px"><span>⌂</span>INICIO</a>
+      <a href="#aldia" data-nav="aldia" style="display:flex;align-items:center;gap:8px;background:#111;color:#fff;font-size:11px;font-weight:800;letter-spacing:.04em;padding:7px 11px;border-radius:9px"><span>◈</span>ALDÍA</a>
+      <a href="#historia" data-nav="historia" style="display:flex;align-items:center;gap:8px;background:#111;color:#fff;font-size:11px;font-weight:800;letter-spacing:.04em;padding:7px 11px;border-radius:9px"><span>◷</span>MI HISTORIA</a>
+      <a href="#tecnologia" data-nav="tecnologia" style="display:flex;align-items:center;gap:8px;background:#111;color:#fff;font-size:11px;font-weight:800;letter-spacing:.04em;padding:7px 11px;border-radius:9px"><span>⌥</span>TECNOLOGÍA</a>
+      <a href="#hoy" data-nav="hoy" style="display:flex;align-items:center;gap:8px;background:#111;color:#fff;font-size:11px;font-weight:800;letter-spacing:.04em;padding:7px 11px;border-radius:9px"><span>◐</span>HOY</a>
+      <a href="#hitos" data-nav="hitos" style="display:flex;align-items:center;gap:8px;background:#111;color:#fff;font-size:11px;font-weight:800;letter-spacing:.04em;padding:7px 11px;border-radius:9px"><span>★</span>HITOS</a>
+      <a href="#contacto" data-nav="contacto" style="display:flex;align-items:center;gap:8px;background:#111;color:#fff;font-size:11px;font-weight:800;letter-spacing:.04em;padding:7px 11px;border-radius:9px"><span>✉</span>CONTACTO</a>
+    </nav>
+
+    <div style="background:rgba(255,255,255,.45);border:1px solid rgba(0,0,0,.05);border-radius:22px;padding:12px 0;overflow:hidden">
+      <div style="display:flex;width:max-content;animation:marq 20s linear infinite">
+        <span style="display:flex;gap:20px;padding-right:20px;font-size:11.5px;font-weight:800;color:#3a392f;white-space:nowrap">UTN<span>INPI</span><span>Premios ILAN</span><span>Naves 2026</span><span>IAE Business School</span></span>
+        <span style="display:flex;gap:20px;padding-right:20px;font-size:11.5px;font-weight:800;color:#3a392f;white-space:nowrap">UTN<span>INPI</span><span>Premios ILAN</span><span>Naves 2026</span><span>IAE Business School</span></span>
+      </div>
+    </div>
+
+    <button onClick="{{ copyEmail }}" style="background:rgba(255,255,255,.6);border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:10px 12px;display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;font-family:inherit;font-size:11px;color:#4a4941;width:100%" style-hover="background:#fff">
+      <span>{{ emailLabel }}</span>
+      <span>⧉</span>
+    </button>
+
+    <a href="#contacto" style="background:#2340FF;color:#fff;border-radius:14px;padding:14px;text-align:center;font-size:15px;font-weight:800" style-hover="background:#1a33cc;color:#fff">Agendar una llamada</a>
+  </aside>
+
+  <div data-mobilebar="true" style="position:fixed;left:12px;right:12px;bottom:12px;z-index:70;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border:1px solid rgba(0,0,0,.06);border-radius:20px;padding:10px 12px;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 8px 26px rgba(0,0,0,.12)">
+    <span style="background:#2340FF;color:#fff;font-weight:900;font-size:13px;padding:5px 9px;border-radius:7px">SOFÍA®</span>
+    <button onClick="{{ toggleMenu }}" style="background:#111;color:#fff;border:0;border-radius:10px;padding:9px 14px;font-family:inherit;font-size:11px;font-weight:800;letter-spacing:.04em;cursor:pointer">MENÚ</button>
+    <a href="#contacto" style="background:#2340FF;color:#fff;border-radius:10px;padding:9px 14px;font-size:11px;font-weight:800;letter-spacing:.04em" style-hover="background:#1a33cc;color:#fff">HABLEMOS</a>
+  </div>
+
+  <div style="{{ overlayStyle }}">
+    <button onClick="{{ toggleMenu }}" style="position:absolute;top:22px;right:22px;background:transparent;border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:10px;padding:9px 14px;font-family:inherit;font-size:12px;font-weight:800;cursor:pointer">CERRAR</button>
+    <a href="#inicio" onClick="{{ toggleMenu }}" style="color:#fff;font-size:30px;font-weight:900;font-stretch:88%;letter-spacing:-.03em" style-hover="color:#2340FF">INICIO</a>
+    <a href="#aldia" onClick="{{ toggleMenu }}" style="color:#fff;font-size:30px;font-weight:900;font-stretch:88%;letter-spacing:-.03em" style-hover="color:#2340FF">ALDÍA</a>
+    <a href="#historia" onClick="{{ toggleMenu }}" style="color:#fff;font-size:30px;font-weight:900;font-stretch:88%;letter-spacing:-.03em" style-hover="color:#2340FF">MI HISTORIA</a>
+    <a href="#tecnologia" onClick="{{ toggleMenu }}" style="color:#fff;font-size:30px;font-weight:900;font-stretch:88%;letter-spacing:-.03em" style-hover="color:#2340FF">TECNOLOGÍA</a>
+    <a href="#hoy" onClick="{{ toggleMenu }}" style="color:#fff;font-size:30px;font-weight:900;font-stretch:88%;letter-spacing:-.03em" style-hover="color:#2340FF">HOY</a>
+    <a href="#hitos" onClick="{{ toggleMenu }}" style="color:#fff;font-size:30px;font-weight:900;font-stretch:88%;letter-spacing:-.03em" style-hover="color:#2340FF">HITOS</a>
+    <a href="#contacto" onClick="{{ toggleMenu }}" style="color:#fff;font-size:30px;font-weight:900;font-stretch:88%;letter-spacing:-.03em" style-hover="color:#2340FF">CONTACTO</a>
+  </div>
+
+  <main data-content="true" style="margin-left:280px;padding:0 48px 0 24px">
+
+    <section id="aldia" data-screen-label="AlDía" style="padding:120px 0 90px">
+      <span style="display:inline-block;border:1px solid rgba(17,17,17,.5);border-radius:999px;padding:6px 14px;font-size:11px;font-weight:800;letter-spacing:.06em">LA COMPAÑÍA</span>
+      <h2 style="margin:22px 0 0;font-size:clamp(42px,6.6vw,104px);line-height:.94;font-weight:900;font-stretch:88%;letter-spacing:-.045em">Una Enfermedad<br><span style="color:#B4B0A4">Ocurre Todos los Días</span></h2>
+      <p style="margin:26px 0 0;max-width:640px;font-size:17px;line-height:1.55;color:#3b3a33;text-wrap:pretty">El sistema de salud solo registra una parte. AlDía hace visible todo lo que pasa cuando nadie está mirando: convierte la experiencia de una persona en una trayectoria continua que conecta a quien se enferma, a quien lo trata y a quien lo cubre.</p>
+
+      <div style="margin-top:48px;display:flex;gap:16px;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory">
+        <article style="flex:0 0 min(420px,82vw);scroll-snap-align:start;position:relative;background:#111;color:#EDEBE3;border-radius:26px;padding:26px;min-height:340px;display:flex;flex-direction:column;box-shadow:0 10px 30px rgba(0,0,0,.1)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+            <span style="font-size:12px;font-weight:900;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:5px 12px">01</span>
+            <div style="display:flex;gap:6px">
+              <span style="font-size:11px;font-weight:700;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:5px 11px">Continuidad</span>
+              <span style="font-size:11px;font-weight:700;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:5px 11px">Datos</span>
+            </div>
+          </div>
+          <h3 style="margin:auto 0 0;font-size:27px;font-weight:800;font-stretch:88%;letter-spacing:-.025em;line-height:1.12">El sistema de salud toma decisiones sobre una vida que no puede ver.</h3>
+          <p style="margin:12px 60px 0 0;font-size:14px;line-height:1.6;color:#9d9b93">Ve consultas, internaciones y facturas, pero no lo que ocurre entre ellas. El problema no es la falta de datos: es la falta de continuidad.</p>
+          <span style="position:absolute;right:22px;bottom:22px;width:42px;height:42px;border-radius:999px;background:#2340FF;color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800">↗</span>
+        </article>
+
+        <article style="flex:0 0 min(420px,82vw);scroll-snap-align:start;position:relative;background:#111;color:#EDEBE3;border-radius:26px;padding:26px;min-height:340px;display:flex;flex-direction:column;box-shadow:0 10px 30px rgba(0,0,0,.1)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+            <span style="font-size:12px;font-weight:900;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:5px 12px">02</span>
+            <div style="display:flex;gap:6px">
+              <span style="font-size:11px;font-weight:700;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:5px 11px">IA</span>
+              <span style="font-size:11px;font-weight:700;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:5px 11px">Voz</span>
+            </div>
+          </div>
+          <h3 style="margin:auto 0 0;font-size:27px;font-weight:800;font-stretch:88%;letter-spacing:-.025em;line-height:1.12">La persona habla.</h3>
+          <p style="margin:12px 60px 0 0;font-size:14px;line-height:1.6;color:#9d9b93">Andy, la inteligencia de AlDía, convierte lo que cuenta en una trayectoria continua. El médico llega sabiendo y quien financia puede ver cómo está su población.</p>
+          <span style="position:absolute;right:22px;bottom:22px;width:42px;height:42px;border-radius:999px;background:#2340FF;color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800">↗</span>
+        </article>
+
+        <article style="flex:0 0 min(420px,82vw);scroll-snap-align:start;position:relative;background:#111;color:#EDEBE3;border-radius:26px;padding:26px;min-height:340px;display:flex;flex-direction:column;box-shadow:0 10px 30px rgba(0,0,0,.1)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+            <span style="font-size:12px;font-weight:900;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:5px 12px">03</span>
+            <div style="display:flex;gap:6px">
+              <span style="font-size:11px;font-weight:700;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:5px 11px">Mercado</span>
+              <span style="font-size:11px;font-weight:700;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:5px 11px">Red</span>
+            </div>
+          </div>
+          <h3 style="margin:auto 0 0;font-size:27px;font-weight:800;font-stretch:88%;letter-spacing:-.025em;line-height:1.12">Una red alrededor de la persona.</h3>
+          <p style="margin:12px 60px 0 0;font-size:14px;line-height:1.6;color:#9d9b93">Obras sociales, prepagas, clínicas y hospitales. Personas con enfermedades crónicas y sus equipos médicos, más una red abierta de servicios y comercios.</p>
+          <span style="position:absolute;right:22px;bottom:22px;width:42px;height:42px;border-radius:999px;background:#2340FF;color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800">↗</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="historia" data-screen-label="Mi historia" style="padding:70px 0 90px">
+      <span style="display:inline-block;border:1px solid rgba(17,17,17,.5);border-radius:999px;padding:6px 14px;font-size:11px;font-weight:800;letter-spacing:.06em">EMPECÉ A LOS 14</span>
+      <h2 style="margin:22px 0 0;font-size:clamp(42px,6.6vw,104px);line-height:.94;font-weight:900;font-stretch:88%;letter-spacing:-.045em">Cómo Llegué<br><span style="color:#B4B0A4">Hasta Acá</span></h2>
+      <p style="margin:24px 0 0;max-width:560px;font-size:17px;line-height:1.55;color:#3b3a33">A los 14 años empecé a aprender a programar sola, con videos de YouTube. Lo que pasó después es más fácil de mostrar que de explicar.</p>
+
+      <div data-timeline="true" style="position:relative;margin-top:64px">
+        <svg data-timeline-svg="true" viewBox="0 0 1000 2400" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none">
+          <path data-timeline-path="true" d="M180,40 C620,120 820,220 820,400 C820,600 200,560 180,780 C160,1000 820,940 820,1180 C820,1420 180,1340 180,1580 C180,1800 820,1740 820,1980 C820,2160 400,2200 300,2340" fill="none" stroke="#111" stroke-width="2" stroke-opacity=".45"></path>
+          <circle cx="820" cy="400" r="9" fill="#2340FF"></circle>
+          <circle cx="180" cy="780" r="9" fill="#2340FF"></circle>
+          <circle cx="820" cy="1180" r="9" fill="#2340FF"></circle>
+          <circle cx="180" cy="1580" r="9" fill="#2340FF"></circle>
+          <circle cx="820" cy="1980" r="9" fill="#2340FF"></circle>
+        </svg>
+
+        <div style="position:relative;z-index:1;display:flex;flex-direction:column;gap:30px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px">
+            <div style="background:rgba(255,255,255,.5);border:1px solid rgba(0,0,0,.05);border-radius:26px;padding:26px;box-shadow:0 8px 24px rgba(0,0,0,.06)">
+              <div style="font-size:56px;font-weight:900;font-stretch:88%;letter-spacing:-.05em;line-height:.9;color:#2340FF">'14</div>
+              <h3 style="margin:14px 0 0;font-size:22px;font-weight:800;letter-spacing:-.02em">Aprendí sola</h3>
+              <p style="margin:8px 0 18px;font-size:14.5px;line-height:1.6;color:#41403a">Empecé a programar de manera autodidacta, principalmente con videos de YouTube. Nadie me enseñó.</p>
+              <div style="display:flex;align-items:center;gap:10px;font-size:12px;color:#6b6a62"><span style="width:30px;height:30px;border-radius:999px;background:rgba(35,64,255,.12);display:flex;align-items:center;justify-content:center;color:#2340FF;font-weight:800">▶</span>@youtube · hace 12 años</div>
+            </div>
+            <div></div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px">
+            <div></div>
+            <div style="background:rgba(255,255,255,.5);border:1px solid rgba(0,0,0,.05);border-radius:26px;padding:26px;box-shadow:0 8px 24px rgba(0,0,0,.06)">
+              <div style="font-size:56px;font-weight:900;font-stretch:88%;letter-spacing:-.05em;line-height:.9;color:#2340FF">'15</div>
+              <h3 style="margin:14px 0 0;font-size:22px;font-weight:800;letter-spacing:-.02em">La computadora que me armé</h3>
+              <p style="margin:8px 0 18px;font-size:14.5px;line-height:1.6;color:#41403a">Mi papá me dio $20.000 para mi cumpleaños pero no alcanzaba para una computadora. Puse un showroom de ropa en casa y ahorré un año entero hasta llegar a $100.000. Para entonces el precio ya había subido, así que compré los componentes por separado y la armé yo misma.</p>
+              <div style="display:flex;align-items:center;gap:10px;font-size:12px;color:#6b6a62"><span style="width:30px;height:30px;border-radius:999px;background:rgba(35,64,255,.12);display:flex;align-items:center;justify-content:center;color:#2340FF;font-weight:800">⌘</span>@hardware · hace 11 años</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px">
+            <div style="background:#111;color:#EDEBE3;border-radius:26px;padding:26px;box-shadow:0 10px 30px rgba(0,0,0,.12)">
+              <div style="font-size:56px;font-weight:900;font-stretch:88%;letter-spacing:-.05em;line-height:.9;color:#2340FF">'16</div>
+              <h3 style="margin:14px 0 0;font-size:22px;font-weight:800;letter-spacing:-.02em">Saveer, mi primer software</h3>
+              <p style="margin:8px 0 18px;font-size:14.5px;line-height:1.6;color:#9d9b93">Una plataforma donde los comercios cargaban productos y precios, y la app los comparaba para mostrar dónde estaba cada producto más barato.</p>
+              <div style="display:flex;align-items:center;gap:10px;font-size:12px;color:#9d9b93"><span style="width:30px;height:30px;border-radius:999px;background:rgba(35,64,255,.25);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800">S</span>@saveer · hace 10 años</div>
+            </div>
+            <div></div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px">
+            <div></div>
+            <div style="background:rgba(255,255,255,.5);border:1px solid rgba(0,0,0,.05);border-radius:26px;padding:26px;box-shadow:0 8px 24px rgba(0,0,0,.06)">
+              <div style="font-size:56px;font-weight:900;font-stretch:88%;letter-spacing:-.05em;line-height:.9;color:#2340FF">'22</div>
+              <h3 style="margin:14px 0 0;font-size:22px;font-weight:800;letter-spacing:-.02em">Ingeniería en la UTN</h3>
+              <p style="margin:8px 0 18px;font-size:14.5px;line-height:1.6;color:#41403a">Empecé Ingeniería en Sistemas de Información y seguí desarrollando proyectos en paralelo a la carrera.</p>
+              <div style="display:flex;align-items:center;gap:10px;font-size:12px;color:#6b6a62"><span style="width:30px;height:30px;border-radius:999px;background:rgba(35,64,255,.12);display:flex;align-items:center;justify-content:center;color:#2340FF;font-weight:800">U</span>@utn</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px">
+            <div style="background:rgba(255,255,255,.5);border:1px solid rgba(0,0,0,.05);border-radius:26px;padding:26px;box-shadow:0 8px 24px rgba(0,0,0,.06)">
+              <div style="font-size:56px;font-weight:900;font-stretch:88%;letter-spacing:-.05em;line-height:.9;color:#2340FF">'25</div>
+              <h3 style="margin:14px 0 0;font-size:22px;font-weight:800;letter-spacing:-.02em">Nace AlDía</h3>
+              <p style="margin:8px 0 18px;font-size:14.5px;line-height:1.6;color:#41403a">Construí la arquitectura y el MVP desde cero, en la misma computadora que había armado a los 15.</p>
+              <div style="display:flex;align-items:center;gap:10px;font-size:12px;color:#6b6a62"><span style="width:30px;height:30px;border-radius:999px;background:rgba(35,64,255,.12);display:flex;align-items:center;justify-content:center;color:#2340FF;font-weight:800">A</span>@aldia</div>
+            </div>
+            <div></div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px">
+            <div></div>
+            <div style="background:rgba(255,255,255,.5);border:1px solid rgba(0,0,0,.05);border-radius:26px;padding:26px;box-shadow:0 8px 24px rgba(0,0,0,.06)">
+              <div style="font-size:56px;font-weight:900;font-stretch:88%;letter-spacing:-.05em;line-height:.9;color:#2340FF">'26</div>
+              <h3 style="margin:14px 0 0;font-size:22px;font-weight:800;letter-spacing:-.02em">El siguiente desafío</h3>
+              <p style="margin:8px 0 18px;font-size:14.5px;line-height:1.6;color:#41403a">Patente en trámite, Top 10 en los Premios ILAN, Naves 2026. Ahora el trabajo es construir el equipo.</p>
+              <div style="display:flex;align-items:center;gap:10px;font-size:12px;color:#6b6a62"><span style="width:30px;height:30px;border-radius:999px;background:rgba(35,64,255,.12);display:flex;align-items:center;justify-content:center;color:#2340FF;font-weight:800">S</span>@sofia · hace 2 horas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tecnologia" data-screen-label="Tecnología" style="padding:70px 0 90px">
+      <span style="display:inline-block;border:1px solid rgba(17,17,17,.5);border-radius:999px;padding:6px 14px;font-size:11px;font-weight:800;letter-spacing:.06em">LO QUE CONSTRUÍ</span>
+      <h2 style="margin:22px 0 0;font-size:clamp(42px,6.6vw,104px);line-height:.94;font-weight:900;font-stretch:88%;letter-spacing:-.045em">La Parte de AlDía<br><span style="color:#B4B0A4">Que Escribí Yo</span></h2>
+
+      <p style="margin:44px 0 0;max-width:1000px;font-size:clamp(24px,3.1vw,44px);line-height:1.22;font-weight:800;font-stretch:88%;letter-spacing:-.03em;text-wrap:pretty">Arquitectura <span style="display:inline-flex;align-items:center;justify-content:center;width:1.35em;height:1em;border-radius:12px;background:rgba(35,64,255,.14);color:#2340FF;vertical-align:-.12em">⌗</span>, backend <span style="display:inline-flex;align-items:center;justify-content:center;width:1.35em;height:1em;border-radius:12px;background:rgba(35,64,255,.14);color:#2340FF;vertical-align:-.12em">⛁</span>, inteligencia artificial <span style="display:inline-flex;align-items:center;justify-content:center;width:1.35em;height:1em;border-radius:12px;background:rgba(35,64,255,.14);color:#2340FF;vertical-align:-.12em">✦</span> y seguridad <span style="display:inline-flex;align-items:center;justify-content:center;width:1.35em;height:1em;border-radius:12px;background:rgba(35,64,255,.14);color:#2340FF;vertical-align:-.12em">⛨</span> — construidos desde cero, línea por línea.</p>
+
+      <div style="margin-top:52px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px">
+        <article style="background:rgba(255,255,255,.5);border:1px solid rgba(0,0,0,.05);border-radius:26px;padding:28px">
+          <div style="display:flex;align-items:baseline;gap:12px"><span style="font-size:13px;font-weight:900;color:#8a887c">01</span><h3 style="margin:0;font-size:24px;font-weight:800;letter-spacing:-.02em">Backend y producto</h3></div>
+          <p style="margin:12px 0 18px;font-size:14.5px;line-height:1.6;color:#41403a">Arquitectura backend, APIs REST, lógica de negocio y componentes del producto.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:7px">
+            <span style="background:#111;color:#EDEBE3;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:700">Node.js</span>
+            <span style="background:#111;color:#EDEBE3;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:700">Express</span>
+            <span style="background:#111;color:#EDEBE3;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:700">TypeScript</span>
+            <span style="background:#111;color:#EDEBE3;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:700">React</span>
+          </div>
+        </article>
+        <article style="background:rgba(255,255,255,.5);border:1px solid rgba(0,0,0,.05);border-radius:26px;padding:28px">
+          <div style="display:flex;align-items:baseline;gap:12px"><span style="font-size:13px;font-weight:900;color:#8a887c">02</span><h3 style="margin:0;font-size:24px;font-weight:800;letter-spacing:-.02em">Datos</h3></div>
+          <p style="margin:12px 0 18px;font-size:14.5px;line-height:1.6;color:#41403a">Estructuras de almacenamiento según las necesidades de los datos y del producto.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:7px">
+            <span style="background:#111;color:#EDEBE3;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:700">MongoDB</span>
+            <span style="background:#111;color:#EDEBE3;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:700">PostgreSQL</span>
+            <span style="background:#111;color:#EDEBE3;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:700">Prisma</span>
+            <span style="background:#111;color:#EDEBE3;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:700">Redis</span>
+            <span style="background:#111;color:#EDEBE3;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:700">TimescaleDB</span>
+          </div>
+        </article>
+        <article style="background:rgba(255,255,255,.5);border:1px solid rgba(0,0,0,.05);border-radius:26px;padding:28px">
+          <div style="display:flex;align-items:baseline;gap:12px"><span style="font-size:13px;font-weight:900;color:#8a887c">03</span><h3 style="margin:0;font-size:24px;font-weight:800;letter-spacing:-.02em">IA y voz</h3></div>
+          <p style="margin:12px 0 18px;font-size:14.5px;line-height:1.6;color:#41403a">Componentes de IA y procesamiento de audio: extracción de características acústicas y comparación con líneas de base individuales.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:7px">
+            <span style="background:#111;color:#EDEBE3;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:700">Python</span>
+            <span style="background:#111;color:#EDEBE3;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:700">FastAPI</span>
+            <span style="background:#111;color:#EDEBE3;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:700">Whisper</span>
+            <span style="background:#111;color:#EDEBE3;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:700">NLP</span>
+            <span style="background:#111;color:#EDEBE3;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:700">LLMs</span>
+            <span style="background:#111;color:#EDEBE3;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:700">MFCC</span>
+          </div>
+        </article>
+        <article style="background:rgba(255,255,255,.5);border:1px solid rgba(0,0,0,.05);border-radius:26px;padding:28px">
+          <div style="display:flex;align-items:baseline;gap:12px"><span style="font-size:13px;font-weight:900;color:#8a887c">04</span><h3 style="margin:0;font-size:24px;font-weight:800;letter-spacing:-.02em">Integraciones y seguridad</h3></div>
+          <p style="margin:12px 0 18px;font-size:14.5px;line-height:1.6;color:#41403a">Integración con dispositivos, autenticación, infraestructura y despliegue.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:7px">
+            <span style="background:#111;color:#EDEBE3;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:700">Android</span>
+            <span style="background:#111;color:#EDEBE3;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:700">BLE</span>
+            <span style="background:#111;color:#EDEBE3;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:700">JWT</span>
+            <span style="background:#111;color:#EDEBE3;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:700">2FA</span>
+            <span style="background:#111;color:#EDEBE3;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:700">Docker</span>
+            <span style="background:#111;color:#EDEBE3;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:700">AWS</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="hoy" data-screen-label="Hoy" style="padding:70px 0 90px">
+      <span style="display:inline-block;border:1px solid rgba(17,17,17,.5);border-radius:999px;padding:6px 14px;font-size:11px;font-weight:800;letter-spacing:.06em">EL CAMBIO DE ROL</span>
+      <h2 style="margin:22px 0 0;font-size:clamp(42px,6.6vw,104px);line-height:.94;font-weight:900;font-stretch:88%;letter-spacing:-.045em">Primero Construí.<br><span style="color:#B4B0A4">Después Empecé a Liderar.</span></h2>
+
+      <div style="margin-top:52px;display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:36px;align-items:start">
+        <p style="margin:0;font-size:clamp(22px,2.4vw,32px);line-height:1.2;font-weight:800;font-stretch:88%;letter-spacing:-.025em">Actualmente mi principal responsabilidad es <span style="color:#2340FF">dirigir la compañía</span>.</p>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <p style="margin:0;background:rgba(255,255,255,.5);border:1px solid rgba(0,0,0,.05);border-radius:22px;padding:24px;font-size:14.5px;line-height:1.65;color:#41403a">Durante las primeras etapas estuve directamente involucrada en prácticamente todas las partes del producto. Diseñé la arquitectura y desarrollé personalmente gran parte de la primera versión.</p>
+          <p style="margin:0;background:rgba(255,255,255,.5);border:1px solid rgba(0,0,0,.05);border-radius:22px;padding:24px;font-size:14.5px;line-height:1.65;color:#41403a">Hoy sigo involucrada en las decisiones tecnológicas, pero mi trabajo como Founder &amp; CEO también incluye producto, estrategia, negocio, propiedad intelectual, equipo y dirección general.</p>
+          <p style="margin:0;background:rgba(255,255,255,.5);border:1px solid rgba(0,0,0,.05);border-radius:22px;padding:24px;font-size:14.5px;line-height:1.65;color:#41403a">Una parte importante de mi trabajo consiste en construir un equipo y una organización capaces de seguir desarrollando AlDía más allá de lo que puedo hacer personalmente.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="hitos" data-screen-label="Hitos" style="padding:70px 0 90px">
+      <span style="display:inline-block;border:1px solid rgba(17,17,17,.5);border-radius:999px;padding:6px 14px;font-size:11px;font-weight:800;letter-spacing:.06em">ALDÍA HASTA AHORA</span>
+      <h2 style="margin:22px 0 0;font-size:clamp(42px,6.6vw,104px);line-height:.94;font-weight:900;font-stretch:88%;letter-spacing:-.045em">Algunos Hitos<br><span style="color:#B4B0A4">del Proyecto</span></h2>
+
+      <div style="margin-top:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px">
+        <article style="background:rgba(255,255,255,.5);border:1px solid rgba(0,0,0,.05);border-radius:26px;padding:28px;min-height:240px;display:flex;flex-direction:column">
+          <div style="font-size:52px;font-weight:900;font-stretch:88%;letter-spacing:-.045em;line-height:.9;color:#2340FF">Top 10</div>
+          <h3 style="margin:auto 0 0;font-size:22px;font-weight:800;letter-spacing:-.02em">Premios ILAN UTN 2026</h3>
+          <p style="margin:10px 0 0;font-size:14.5px;line-height:1.6;color:#41403a">Seleccionado entre los 10 mejores proyectos de ingeniería del país.</p>
+        </article>
+        <article style="background:rgba(255,255,255,.5);border:1px solid rgba(0,0,0,.05);border-radius:26px;padding:28px;min-height:240px;display:flex;flex-direction:column">
+          <div style="font-size:52px;font-weight:900;font-stretch:88%;letter-spacing:-.045em;line-height:.9;color:#2340FF">INPI</div>
+          <h3 style="margin:auto 0 0;font-size:22px;font-weight:800;letter-spacing:-.02em">Patente en trámite</h3>
+          <p style="margin:10px 0 0;font-size:14.5px;line-height:1.6;color:#41403a">Solicitud de patente de invención de un sistema de apoyo clínico con análisis asistido por inteligencia artificial.</p>
+        </article>
+        <article style="background:rgba(255,255,255,.5);border:1px solid rgba(0,0,0,.05);border-radius:26px;padding:28px;min-height:240px;display:flex;flex-direction:column">
+          <div style="font-size:52px;font-weight:900;font-stretch:88%;letter-spacing:-.045em;line-height:.9;color:#2340FF">Naves</div>
+          <h3 style="margin:auto 0 0;font-size:22px;font-weight:800;letter-spacing:-.02em">Naves 2026</h3>
+          <p style="margin:10px 0 0;font-size:14.5px;line-height:1.6;color:#41403a">Programa vinculado con IAE Business School y Banco Macro.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contacto" data-screen-label="Contacto" style="padding:70px 0 80px">
+      <h2 style="margin:0;font-size:clamp(42px,6.6vw,104px);line-height:.94;font-weight:900;font-stretch:88%;letter-spacing:-.045em">Si Querés Hablar<br><span style="color:#B4B0A4">de AlDía o Tecnología</span></h2>
+
+      <div style="margin-top:44px;display:flex;flex-direction:column;gap:18px;align-items:flex-start">
+        <div style="display:flex;align-items:center;gap:14px">
+          <img src="assets/sofia-cutout.png" alt="Sofía Cardozo" style="width:56px;height:56px;border-radius:999px;object-fit:cover;object-position:50% 22%;background:#c9c5b9">
+          <span style="background:rgba(255,255,255,.6);border:1px solid rgba(0,0,0,.05);border-radius:999px;padding:14px 22px;font-size:16px;font-weight:600">¿Tenés algo en mente?</span>
+        </div>
+        <a href="mailto:sofia@aldia.health" style="background:#2340FF;color:#fff;border-radius:999px;padding:18px 40px;font-size:18px;font-weight:800" style-hover="background:#1a33cc;color:#fff">Hablemos</a>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <a href="mailto:sofia@aldia.health" style="border:1px solid rgba(17,17,17,.25);border-radius:999px;padding:11px 20px;font-size:13px;font-weight:700" style-hover="border-color:#2340FF;color:#2340FF">sofia@aldia.health ↗</a>
+          <a href="https://www.linkedin.com/in/sof%C3%ADa-soledad-cardozo-716789224" target="_blank" rel="noopener" style="border:1px solid rgba(17,17,17,.25);border-radius:999px;padding:11px 20px;font-size:13px;font-weight:700" style-hover="border-color:#2340FF;color:#2340FF">LinkedIn ↗</a>
+          <a href="https://github.com/Let-so" target="_blank" rel="noopener" style="border:1px solid rgba(17,17,17,.25);border-radius:999px;padding:11px 20px;font-size:13px;font-weight:700" style-hover="border-color:#2340FF;color:#2340FF">GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <footer style="padding:40px 0 34px;border-top:1px solid rgba(17,17,17,.15)">
+      <div style="font-size:12.4vw;line-height:.84;font-weight:900;font-stretch:88%;letter-spacing:-.055em;color:#111;white-space:nowrap">SOFÍA CARDOZO</div>
+      <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:18px;font-size:13px;font-weight:600;color:#4a4941">
+        <span>Founder &amp; CEO — AlDía</span>
+        <span>·</span>
+        <span>Ingeniería en Sistemas de Información — UTN</span>
+        <span>·</span>
+        <span>Córdoba, Argentina</span>
+      </div>
+    </footer>
+
+  </main>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440},&quot;email&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;sofia@aldia.health&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { copied: false, menu: false };
+
+  componentDidMount() {
+    this._spy();
+    this._waitGsap(0);
+  }
+
+  componentWillUnmount() {
+    if (this._io) this._io.disconnect();
+    if (this._watch) clearInterval(this._watch);
+  }
+
+  _spy() {
+    const links = Array.from(document.querySelectorAll('[data-nav]'));
+    const paint = (id) => links.forEach(a => {
+      const on = a.dataset.nav === id;
+      a.style.background = on ? '#2340FF' : '#111';
+      a.style.color = '#fff';
+    });
+    const secs = links.map(a => document.getElementById(a.dataset.nav)).filter(Boolean);
+    this._io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) paint(e.target.id); }),
+      { rootMargin: '-45% 0px -50% 0px' });
+    secs.forEach(s => this._io.observe(s));
+    paint('inicio');
+  }
+
+  _waitGsap(tries) {
+    if (window.gsap && window.ScrollTrigger) {
+      this._animate();
+      // The helmet CDN scripts can re-execute on remount/hot-reload, swapping
+      // window.gsap/ScrollTrigger for fresh instances with empty registries and
+      // silently orphaning everything we built. Watch for the swap and rebuild.
+      if (!this._watch) {
+        this._watch = setInterval(() => {
+          const ST = window.ScrollTrigger;
+          if (!ST) return;
+          if (ST !== this._st || ST.getAll().length === 0) this._animate();
+        }, 600);
+      }
+      return;
+    }
+    if (tries > 40) return;
+    setTimeout(() => this._waitGsap(tries + 1), 100);
+  }
+
+  _animate() {
+    const gsap = window.gsap, ST = window.ScrollTrigger;
+    gsap.registerPlugin(ST);
+    this._st = ST;
+    // Drop stale triggers from a previous mount/hot-reload before rebuilding.
+    ST.getAll().forEach(t => {
+      const el = t.trigger;
+      if (!el || !document.body.contains(el) || el.id === 'inicio' || el.hasAttribute('data-timeline')) t.kill();
+    });
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const narrow = window.innerWidth < 1024;
+    const panel = document.querySelector('[data-panel]');
+    const path = document.querySelector('[data-timeline-path]');
+
+    if (path) {
+      const len = path.getTotalLength();
+      path.style.strokeDasharray = len;
+      path.style.strokeDashoffset = reduced ? 0 : len;
+      if (!reduced) {
+        gsap.to(path, {
+          strokeDashoffset: 0, ease: 'none',
+          scrollTrigger: { trigger: '[data-timeline]', start: 'top 75%', end: 'bottom 85%', scrub: true }
+        });
+      }
+    }
+
+    if (reduced || narrow) { ST.refresh(); return; }
+
+    const tl = gsap.timeline({
+      scrollTrigger: { trigger: '#inicio', start: 'top top', end: '+=100%', scrub: 0.4 }
+    });
+
+    tl.fromTo(panel, { x: -300, opacity: 0 }, { x: 0, opacity: 1, ease: 'power2.out', duration: 0.55 }, 0.3)
+      .fromTo(panel.children, { x: -60, opacity: 0 }, { x: 0, opacity: 1, stagger: 0.05, duration: 0.4 }, 0.35);
+
+    tl.to('[data-hero-photo]', { opacity: 0, y: -40, scale: 0.94, ease: 'power1.in', duration: 0.55 }, 0)
+      .to(['[data-hero-wordmark]', '[data-hero-wordmark-front]'], { scale: 0.16, xPercent: -34, yPercent: -22, opacity: 0, transformOrigin: 'left top', ease: 'power2.inOut', duration: 0.75 }, 0)
+      .to('[data-hero-headline]', { opacity: 0, y: -30, duration: 0.4 }, 0)
+      .to('[data-hero-nav]', { x: -window.innerWidth * 0.32, y: 40, opacity: 0, stagger: 0.03, ease: 'power2.in', duration: 0.6 }, 0)
+      .to('[data-hero-card]', { x: -160, scale: 0.62, opacity: 0, transformOrigin: 'left center', ease: 'power2.in', duration: 0.6 }, 0.05)
+      .to(['[data-hero-fine]', '[data-hero-actions]'], { opacity: 0, duration: 0.35 }, 0);
+
+    gsap.set(panel, { x: -300, opacity: 0 });
+    ST.refresh();
+    requestAnimationFrame(() => ST.refresh());
+  }
+
+  renderVals() {
+    const mail = this.props.email ?? 'sofia@aldia.health';
+    return {
+      emailLabel: this.state.copied ? '¡Copiado!' : mail,
+      copyEmail: () => {
+        if (navigator.clipboard) navigator.clipboard.writeText(mail);
+        this.setState({ copied: true });
+        setTimeout(() => this.setState({ copied: false }), 1600);
+      },
+      toggleMenu: () => this.setState(s => ({ menu: !s.menu })),
+      overlayStyle: 'position:fixed;inset:0;z-index:90;background:#111;flex-direction:column;justify-content:center;gap:14px;padding:32px;display:' + (this.state.menu ? 'flex' : 'none')
+    };
+  }
+}
+</script>
+</body>
+</html>
