@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const app = express();
 
-// Habilitar compresión Gzip
+// Habilitar compresión
 app.use(compression());
 
 // Headers de seguridad
@@ -17,12 +17,41 @@ app.use((req, res, next) => {
   next();
 });
 
-// Archivos estáticos
+// Tipos MIME personalizados
+app.use((req, res, next) => {
+  if (req.path.endsWith('.css')) {
+    res.setHeader('Content-Type', 'text/css; charset=utf-8');
+  } else if (req.path.endsWith('.js')) {
+    res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+  }
+  next();
+});
+
+// Archivos estáticos con tipos MIME correctos
 app.use(express.static(path.join(__dirname), {
-  maxAge: '1d'
+  maxAge: '1d',
+  setHeaders: (res, filepath) => {
+    if (filepath.endsWith('.css')) {
+      res.setHeader('Content-Type', 'text/css; charset=utf-8');
+    } else if (filepath.endsWith('.js')) {
+      res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+    } else if (filepath.endsWith('.woff2')) {
+      res.setHeader('Content-Type', 'font/woff2');
+    } else if (filepath.endsWith('.woff')) {
+      res.setHeader('Content-Type', 'font/woff');
+    } else if (filepath.endsWith('.ttf')) {
+      res.setHeader('Content-Type', 'font/ttf');
+    } else if (filepath.endsWith('.png')) {
+      res.setHeader('Content-Type', 'image/png');
+    } else if (filepath.endsWith('.jpg') || filepath.endsWith('.jpeg')) {
+      res.setHeader('Content-Type', 'image/jpeg');
+    } else if (filepath.endsWith('.svg')) {
+      res.setHeader('Content-Type', 'image/svg+xml');
+    }
+  }
 }));
 
-// Ruta principal - Sofía Cardozo v3
+// Ruta principal
 app.get('/', (req, res) => {
   const htmlPath = path.join(__dirname, 'Sofia Cardozo v3.dc.html');
   try {
@@ -30,11 +59,10 @@ app.get('/', (req, res) => {
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
     res.send(html);
   } catch (e) {
-    res.status(500).send('Error loading page: ' + e.message);
+    res.status(500).send('Error: ' + e.message);
   }
 });
 
-// Otras versiones
 app.get('/v2', (req, res) => {
   const htmlPath = path.join(__dirname, 'Sofia Cardozo v2.dc.html');
   try {
@@ -42,11 +70,11 @@ app.get('/v2', (req, res) => {
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
     res.send(html);
   } catch (e) {
-    res.status(500).send('Error loading page: ' + e.message);
+    res.status(500).send('Error: ' + e.message);
   }
 });
 
-// 404 fallback
+// 404
 app.use((req, res) => {
   const htmlPath = path.join(__dirname, 'Sofia Cardozo v3.dc.html');
   try {
@@ -61,5 +89,5 @@ app.use((req, res) => {
 // Iniciar
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`✅ Server online on port ${PORT}`);
+  console.log(`✅ Server running on port ${PORT}`);
 });
