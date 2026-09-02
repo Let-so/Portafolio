@@ -79,7 +79,15 @@
   ],
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/",
+      "destination": "/api/render"
+    },
+    {
+      "source": "/v2",
+      "destination": "/api/render"
+    },
+    {
+      "source": "/v3",
       "destination": "/api/render"
     }
   ]
